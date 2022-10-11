@@ -1,4 +1,6 @@
 const express = require("express");
+const { postUserMiddleware } = require("../middleware/postUserMiddleware");
+const { editUserMiddleware } = require("../middleware/editUserMiddleware");
 const {
   getOneEmployeeController,
 } = require("../controllers/getOneEmployeeController");
@@ -19,7 +21,7 @@ const router = express.Router();
 router.get("/", getAllEmployeesController);
 router.get("/getEmployee/:id", getOneEmployeeController);
 router.get("/removeEmployee/:id", removeEmployeeController);
-router.post("/", addEmployeeController);
-router.post("/update", updateEmployeeController);
+router.post("/", postUserMiddleware, addEmployeeController);
+router.post("/update", editUserMiddleware, updateEmployeeController);
 
 module.exports = router;

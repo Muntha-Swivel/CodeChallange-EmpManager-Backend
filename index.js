@@ -1,7 +1,6 @@
 const express = require("express");
 const cors = require("cors");
 var bodyParser = require("body-parser");
-const swaggerJsdoc = require("swagger-jsdoc");
 const employeeRoutes = require("./routes/employeeRoute");
 const connectDb = require("./config/dbConfig");
 const swaggerUi = require("swagger-ui-express");
